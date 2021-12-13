@@ -1,0 +1,3 @@
+cardano-src/cardano-node/*
+cardano-src/libsodium/*
+relay/db/*
