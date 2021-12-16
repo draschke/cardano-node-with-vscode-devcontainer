@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/debian
 {
-	"name": "cardano-node-with-debian-bullseye",
+	"name": "cardano-node-with-debian-bullseye-podman",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
@@ -11,10 +11,10 @@
 			"VARIANT": "bullseye"
 		}
 	},
-	"mounts": [
-		"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/usr/local/share/.ssh,type=bind"
-		// "source=${localWorkspaceFolder}/shared,target=:/mnt/shared,type=bind,consistency=cached"
-	],
+	// "mounts": [
+	// 	"source=${env:HOME}${env:USERPROFILE}/.ssh,target=/usr/local/share/.ssh,type=bind"
+	// 	// "source=${localWorkspaceFolder}/shared,target=:/mnt/shared,type=bind,consistency=cached"
+	// ],
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"workbench.colorTheme": "codeSTACKr Theme",
@@ -34,7 +34,8 @@
 		},
 		"[gitignore]": {
 			"editor.defaultFormatter": "codezombiech.gitignore"
-		}
+		},
+		"remote.containers.dockerPath": "podman",
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -109,24 +110,19 @@
 		"yzhang.markdown-all-in-one",
 		// Activate additional features
 		// ===============================
+		"ms-vscode-remote.vscode-remote-extensionpack",
 		"ms-vscode-remote.remote-containers",
 		"ms-vscode-remote.remote-ssh-edit",
 		"ms-vscode-remote.remote-ssh",
 		"ms-vscode-remote.remote-wsl",
-		"ms-vscode-remote.vscode-remote-extensionpack",
-		"ms-kubernetes-tools.vscode-kubernetes-tools",
-		"ipedrazas.kubernetes-snippets",
-		"ms-azuretools.vscode-docker",
+		// "ms-kubernetes-tools.vscode-kubernetes-tools",
+		// "ipedrazas.kubernetes-snippets",
+		// "ms-azuretools.vscode-docker",
 		// Python
 		// ======
 		"ms-python.python",
 		"ms-python.vscode-pylance",
 		"ms-toolsai.jupyter"
-	],
-	// Ensure that Docker socket is mapped into the development container
-	"runArgs": [
-		"-v",
-		"/var/run/docker.sock:/var/run/docker.sock"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
@@ -138,10 +134,15 @@
 		8080
 	],
 	"features": {
-		"docker-from-docker": "latest",
 		"github-cli": "latest",
 		"node": "16",
 		"python": "latest"
 	},
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"workspaceFolder": "/workspace",
+	"runArgs": [
+		"--userns=keep-id"
+	],
+	"containerUser": "vscode"
 }

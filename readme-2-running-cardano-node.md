@@ -1,4 +1,4 @@
-### [Run cardano-node]https://developers.cardano.org/docs/get-started/running-cardano)
+# [Run cardano-node]https://developers.cardano.org/docs/get-started/running-cardano)
 
 ```bash
 vscode ➜ /workspaces/cardano-node-with-vscode-devcontainer (master ✗) $ cd relay/
@@ -39,7 +39,11 @@ srwxr-xr-x 1 vscode vscode    0 Dec 13 09:52 node.socket
 drwxr-xr-x 2 vscode vscode 4096 Dec 13 09:58 volatile
 ```
 
+### test querying the blockchain tip of our cardano-node (works only from the user vscode)
+
+```bash
 $ cardano-cli query tip --testnet-magic 1097911063
+```
 
 ```bash
 vscode ➜ ~ $ cardano-cli query tip --testnet-magic 1097911063
@@ -62,3 +66,5 @@ vscode ➜ ~ $ cardano-cli query tip --testnet-magic 1097911063
     "syncProgress": "7.41"
 }
 ```
+
+vscode ➜ ~ $ cardano-cli query utxo --testnet-magic 1097911063 --address $SENDER

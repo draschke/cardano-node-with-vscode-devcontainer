@@ -8,7 +8,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ENV npm config set registry https://registry.npmjs.org/
 
-WORKDIR /workspaces/node
+WORKDIR /
 COPY ./ ./
 
 # Alter node user as needed, install tslint, typescript. eslint is installed by javascript image
@@ -27,8 +27,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install acl \
     && apt-get -y install nano
 
-RUN chown -R ${USERNAME}:${USERNAME} .devcontainer/scripts/ \
+RUN sudo chown -R ${USERNAME}:${USERNAME} .devcontainer/scripts/ \
     && chmod +x -R .devcontainer/scripts/
 RUN ./.devcontainer/scripts/4-helm
 RUN ./.devcontainer/scripts/6-python
-RUN ./.devcontainer/scripts/5-docker
+# RUN ./.devcontainer/scripts/5-docker
