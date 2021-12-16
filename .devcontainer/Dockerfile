@@ -9,7 +9,9 @@ ARG USER_GID=$USER_UID
 ENV npm config set registry https://registry.npmjs.org/
 
 WORKDIR /
-COPY ./ ./
+COPY .devcontainer/ /.devcontainer/
+
+RUN ls -la /.devcontainer/*
 
 # Alter node user as needed, install tslint, typescript. eslint is installed by javascript image
 RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \

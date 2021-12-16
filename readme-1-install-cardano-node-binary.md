@@ -17,11 +17,19 @@ sudo apt-get install automake build-essential pkg-config libffi-dev libgmp-dev l
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
 
+### Open a new shell and run the following command:
+
+```bash
+ghcup --version
+```
+
 ### Supported GHC Versions you will find here
 
 https://github.com/input-output-hk/haskell.nix/blob/master/docs/reference/supported-ghc-versions.md
 
 In our case that version: ghcup --version 8.10.7
+
+### After installation, restart your shell/terminal after installing ghcup 
 
 ```bash
 ghcup install ghc 8.10.7
@@ -33,11 +41,11 @@ ghcup set cabal 3.4.0.0
 
 ### Let's create a working directory to store the source-code and builds for the components
 
-- $HOME=>/workspaces/cardano-node-with-vscode-devcontainer
+- $HOME=>/workspace
 
 ```bash
-mkdir -p /workspaces/cardano-node-with-vscode-devcontainer/cardano-src
-cd /workspaces/cardano-node-with-vscode-devcontainer/cardano-src
+mkdir -p /workspace/cardano-src
+cd /workspace/cardano-src
 ```
 
 ### Next, we will download, compile and install libsodium
@@ -73,7 +81,7 @@ source $HOME/.bashrc
 ## download, compile and install cardano-node and cardano-cli
 
 ```bash
-cd /workspaces/cardano-node-with-vscode-devcontainer/cardano-src
+cd /workspace/cardano-src
 ```
 
 ### Download the cardano-node repository
@@ -133,7 +141,7 @@ $ cardano-cli --help
 ### run get_latest_config_files from root of the repository
 
 ```bash
-vscode ➜ /workspaces/cardano-node-with-vscode-devcontainer (master ✗) 
+vscode ➜ /workspace (master ✗) 
 $ ./get_latest_config_files.sh 
 ```
 
@@ -149,7 +157,7 @@ curl -O -J https://hydra.iohk.io/build/7654130/download/1/testnet-alonzo-genesis
 
 ### After the end the root should look like this
 
-vscode ➜ /workspaces/cardano-node-with-vscode-devcontainer (master ✗) $ ls -la
+vscode ➜ /workspace (master ✗) $ ls -la
 total 44
 drwxr-xr-x 7 vscode vscode 4096 Dec 13 10:18 .
 drwxr-xr-x 1 root   root   4096 Dec 12 11:42 ..
@@ -167,7 +175,7 @@ drwxr-xr-x 3 vscode vscode 4096 Dec 12 16:32 relay
 ### relay directory looks like this
 
 ```bash
-vscode ➜ /workspaces/cardano-node-with-vscode-devcontainer (master ✗) 
+vscode ➜ /workspace (master ✗) 
 $ cd relay/ (master ✗) $ ls -la
 total 68
 drwxr-xr-x 3 vscode vscode  4096 Dec 11 11:09 .

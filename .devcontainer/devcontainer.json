@@ -25,16 +25,16 @@
 		"editor.formatOnSave": true,
 		"editor.formatOnPaste": true,
 		"editor.formatOnType": true,
-		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"[html]": {
-			"editor.defaultFormatter": "esbenp.prettier-vscode"
-		},
-		"[sql]": {
-			"editor.defaultFormatter": "mtxr.sqltools"
-		},
-		"[gitignore]": {
-			"editor.defaultFormatter": "codezombiech.gitignore"
-		},
+		// "editor.defaultFormatter": "esbenp.prettier-vscode",
+		// "[html]": {
+		// 	"editor.defaultFormatter": "esbenp.prettier-vscode"
+		// },
+		// "[sql]": {
+		// 	"editor.defaultFormatter": "mtxr.sqltools"
+		// },
+		// "[gitignore]": {
+		// 	"editor.defaultFormatter": "codezombiech.gitignore"
+		// },
 		"remote.containers.dockerPath": "podman",
 	},
 	// Add the IDs of extensions you want installed when the container is created.
@@ -87,17 +87,17 @@
 		"rangav.vscode-thunder-client",
 		"redhat.vscode-commons",
 		"redhat.vscode-yaml",
-		"sapos.yeoman-ui",
-		"saposs.sap-hana-driver-for-sqltools",
-		"saposs.vscode-ui5-language-assistant",
-		"saposs.xml-toolkit",
-		"sapse.sap-ux-annotation-modeler-extension",
-		"sapse.sap-ux-application-modeler-extension",
-		"sapse.sap-ux-fiori-tools-extension-pack",
-		"sapse.sap-ux-help-extension",
-		"sapse.sap-ux-service-modeler-extension",
-		"sapse.vsc-extension-sa",
-		"sapse.vscode-cds",
+		// "sapos.yeoman-ui",
+		// "saposs.sap-hana-driver-for-sqltools",
+		// "saposs.vscode-ui5-language-assistant",
+		// "saposs.xml-toolkit",
+		// "sapse.sap-ux-annotation-modeler-extension",
+		// "sapse.sap-ux-application-modeler-extension",
+		// "sapse.sap-ux-fiori-tools-extension-pack",
+		// "sapse.sap-ux-help-extension",
+		// "sapse.sap-ux-service-modeler-extension",
+		// "sapse.vsc-extension-sa",
+		// "sapse.vscode-cds",
 		"sdras.night-owl",
 		"solarliner.linux-themes",
 		"theosun.sap-json-schemas",
@@ -134,7 +134,7 @@
 		8080
 	],
 	"features": {
-		"github-cli": "latest",
+		// "github-cli": "latest",
 		"node": "16",
 		"python": "latest"
 	},
