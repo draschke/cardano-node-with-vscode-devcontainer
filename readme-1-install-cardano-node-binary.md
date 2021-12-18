@@ -17,7 +17,7 @@ sudo apt-get install automake build-essential pkg-config libffi-dev libgmp-dev l
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
 
-### Open a new shell and run the following command:
+### Open a new shell and run the following command
 
 ```bash
 ghcup --version
@@ -44,13 +44,14 @@ ghcup set cabal 3.4.0.0
 - $HOME=>/workspace
 
 ```bash
-mkdir -p /workspace/cardano-src
-cd /workspace/cardano-src
+mkdir -p /cardano/cardano-src
+cd /cardano/cardano-src
 ```
 
 ### Next, we will download, compile and install libsodium
 
 ```bash
+cd /cardano/cardano-src
 git clone https://github.com/input-output-hk/libsodium
 cd libsodium
 git checkout 66f017f1
@@ -70,6 +71,7 @@ echo $LD_LIBRARY_PATH
 echo 'export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"' >> ~/.bashrc
 source ~/.bashrc 
 echo $PKG_CONFIG_PATH
+source $HOME/.bashrc
 ```
 
 ### Once saved, we will then reload your shell profile to use the new variables. We can do that by typing
@@ -81,12 +83,13 @@ source $HOME/.bashrc
 ## download, compile and install cardano-node and cardano-cli
 
 ```bash
-cd /workspace/cardano-src
+cd /cardano/cardano-src
 ```
 
 ### Download the cardano-node repository
 
 ```bash
+cd /cardano/cardano-src
 git clone https://github.com/input-output-hk/cardano-node.git
 cd cardano-node
 git fetch --all --recurse-submodules --tags
@@ -163,13 +166,11 @@ drwxr-xr-x 7 vscode vscode 4096 Dec 13 10:18 .
 drwxr-xr-x 1 root   root   4096 Dec 12 11:42 ..
 drwxr-xr-x 4 vscode vscode 4096 Dec 12 13:34 cardano-src
 drwxr-xr-x 3 vscode vscode 4096 Dec 12 11:30 .devcontainer
-drwxr-xr-x 3 vscode vscode 4096 Dec 12 11:32 .docker
 -rwxr-xr-x 1 vscode vscode 1466 Dec 12 16:27 get_latest_config_files.sh
 drwxr-xr-x 8 vscode vscode 4096 Dec 13 10:18 .git
 -rw-r--r-- 1 vscode vscode    0 Dec 13 10:16 .gitignore
 -rw-r--r-- 1 vscode vscode 3196 Dec 13 10:15 readme-1-install-cardano-node-binary.md
 -rw-r--r-- 1 vscode vscode 3463 Dec 13 10:18 readme-2-running-cardano-node.md
--rw-r--r-- 1 vscode vscode  992 Dec 13 10:14 readme-3-swap.md
 drwxr-xr-x 3 vscode vscode 4096 Dec 12 16:32 relay
 
 ### relay directory looks like this
@@ -190,7 +191,7 @@ drwxr-xr-x 5 vscode vscode  4096 Dec 11 11:16 db
 
 ## If your server has only 8G of RAM you should configure the SWAP file
 
-### Configuration works only in wsl (Open another window in WSL and change the file)
+### Configuration works only in WSL (Open another window in WSL and change the file)
 
 ```bash
 free -m

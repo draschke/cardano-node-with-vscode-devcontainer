@@ -1,3 +1,7 @@
 cardano-src/cardano-node/*
+cardano/cardano-src/cardano-node/*
 cardano-src/libsodium/*
+cardano/cardano-src/libsodium/*
 relay/db/*
+cardano-src/libsodium
+cardano-src/cardano-node

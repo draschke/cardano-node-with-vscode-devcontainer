@@ -139,8 +139,8 @@
 		"python": "latest"
 	},
 	"remoteUser": "vscode",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-	"workspaceFolder": "/workspace",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/cardano,type=bind,consistency=cached",
+	"workspaceFolder": "/cardano",
 	"runArgs": [
 		"--userns=keep-id"
 	],

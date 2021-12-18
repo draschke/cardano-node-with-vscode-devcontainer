@@ -1,16 +1,5 @@
 # [Run cardano-node]https://developers.cardano.org/docs/get-started/running-cardano)
 
-```bash
-vscode ➜ /workspaces/cardano-node-with-vscode-devcontainer (master ✗) $ cd relay/
-$  cardano-node run \
---topology /workspaces/cardano-node-with-vscode-devcontainer/relay/testnet-topology.json \
---config /workspaces/cardano-node-with-vscode-devcontainer/relay/testnet-config.json \
---database-path /workspaces/cardano-node-with-vscode-devcontainer/relay/db \
---socket-path /workspaces/cardano-node-with-vscode-devcontainer/relay/db/node.socket \
---host-addr 172.17.0.2 \
---port 1337
-```
-
 ## [Querying the Cardano Blockchain](https://developers.cardano.org/docs/querying-the-cardano-blockchain/)
 
 cardano-cli and other Cardano software components need to know where the node socket file is located. 
@@ -24,10 +13,22 @@ source ~/.bashrc
 echo $CARDANO_NODE_SOCKET_PATH
 ```
 
-### Take care of the permission of the socket file (srwxr-xr-x)
+```bash
+vscode ➜ /cardano/relay (master ✗) $
+$ hostname -i
+$  cardano-node run \
+--topology /cardano/relay/testnet-topology.json \
+--config /cardano/relay/testnet-config.json \
+--database-path /cardano/relay/db \
+--socket-path /cardano/relay/db/node.socket \
+--host-addr 10.0.2.100 \
+--port 1337
+```
+
+After running cardano-node, the db folder will be created. Take care of the permission of the socket file (srwxr-xr-x)
 
 ```bash
-vscode ➜ /workspaces/cardano-node-with-vscode-devcontainer/relay/db (master ✗) $ ls -la
+vscode ➜ /cardano/relay/db (master ✗) $ ls -la
 total 24
 drwxr-xr-x 5 vscode vscode 4096 Dec 13 09:52 .
 drwxr-xr-x 3 vscode vscode 4096 Dec 12 16:32 ..
@@ -40,6 +41,8 @@ drwxr-xr-x 2 vscode vscode 4096 Dec 13 09:58 volatile
 ```
 
 ### test querying the blockchain tip of our cardano-node (works only from the user vscode)
+
+open a new terminal and run the following command
 
 ```bash
 $ cardano-cli query tip --testnet-magic 1097911063
