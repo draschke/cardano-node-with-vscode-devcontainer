@@ -24,7 +24,7 @@
 		"shellformat.flag": "-i=2 -bn -ci -sr",
 		"editor.formatOnSave": true,
 		"editor.formatOnPaste": true,
-		"editor.formatOnType": true,
+		"editor.formatOnType": true
 		// "editor.defaultFormatter": "esbenp.prettier-vscode",
 		// "[html]": {
 		// 	"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -35,7 +35,7 @@
 		// "[gitignore]": {
 		// 	"editor.defaultFormatter": "codezombiech.gitignore"
 		// },
-		"remote.containers.dockerPath": "podman",
+		// "remote.containers.dockerPath": "podman",
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -139,10 +139,15 @@
 		"python": "latest"
 	},
 	"remoteUser": "vscode",
-	"workspaceMount": "source=${localWorkspaceFolder},target=/cardano,type=bind,consistency=cached",
-	"workspaceFolder": "/cardano",
+	// "workspaceMount": "source=${localWorkspaceFolder},target=/cardano,type=bind,consistency=cached",
+	// "workspaceFolder": "/cardano",
+	// Ensure that Docker socket is mapped into the development container
 	"runArgs": [
-		"--userns=keep-id"
-	],
-	"containerUser": "vscode"
+		"-v",
+		"/var/run/docker.sock:/var/run/docker.sock"
+	]
+	// "runArgs": [
+	// 	"--userns=keep-id"
+	// ],
+	// "containerUser": "vscode"
 }

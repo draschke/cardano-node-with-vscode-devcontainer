@@ -21,10 +21,10 @@ RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
     fi
 
 # [Optional] Uncomment this section to install additional OS packages.
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+RUN sudo apt-get -y update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-    && apt-get dist-upgrade \
-    && apt-get update -y \
+    && apt-get -y dist-upgrade \
+    && apt-get -y update \
     && apt-get -y install libsecret-1-dev \
     && apt-get -y install acl \
     && apt-get -y install nano
@@ -33,4 +33,4 @@ RUN sudo chown -R ${USERNAME}:${USERNAME} .devcontainer/scripts/ \
     && chmod +x -R .devcontainer/scripts/
 RUN ./.devcontainer/scripts/4-helm
 RUN ./.devcontainer/scripts/6-python
-# RUN ./.devcontainer/scripts/5-docker
+RUN ./.devcontainer/scripts/5-docker
