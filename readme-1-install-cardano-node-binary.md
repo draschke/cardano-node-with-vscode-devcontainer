@@ -41,7 +41,7 @@ ghcup set cabal 3.4.0.0
 
 ### Let's create a working directory to store the source-code and builds for the components
 
-- $HOME=>/workspace
+- $HOME=>/cardano
 
 ```bash
 mkdir -p /cardano/cardano-src
@@ -74,17 +74,7 @@ echo $PKG_CONFIG_PATH
 source $HOME/.bashrc
 ```
 
-### Once saved, we will then reload your shell profile to use the new variables. We can do that by typing
-
-```bash
-source $HOME/.bashrc
-```
-
 ## download, compile and install cardano-node and cardano-cli
-
-```bash
-cd /cardano/cardano-src
-```
 
 ### Download the cardano-node repository
 
